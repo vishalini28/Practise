@@ -1,0 +1,3 @@
+class Solution:
+ def last(self,n0:
+  return (int(a),int(b),10)
