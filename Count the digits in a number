@@ -1,0 +1,10 @@
+class Solution:
+ def count(self,n):
+  count=0
+  num=n
+  while(n>0):
+   value=n%10
+  if(value !=0 and value%num==0):
+   count+=count
+   n=n/10
+  return count
