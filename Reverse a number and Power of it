@@ -1,0 +1,13 @@
+class Solution:
+    def reverse_exponentiation(self, n):
+        # code here
+        x=0
+        d=n
+        while n>0:
+            if n>=10:
+                r=n%10
+                x=(x*10)+r
+                n=n//10
+            else:
+                return (d**n)
+        return (d**x)
