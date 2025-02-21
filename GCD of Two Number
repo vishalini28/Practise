@@ -1,0 +1,15 @@
+class Solution:
+ def GCd(self,S,B):
+  rem=1
+  if A>B:
+   dividend=A
+   divisor=B
+  else:
+   dividend=B
+   divisor=A
+  while rem!=0:
+   rem=dividend%divisor
+  if rem!=0:
+   dividend=divisor
+   divisor=rem
+  return divisor
