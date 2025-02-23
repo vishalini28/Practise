@@ -1,0 +1,7 @@
+class Solution:
+ def palindrome(self,n):
+  string=str(n)
+  rev=string[::-1]
+  if int(rev)==n:
+   return 1
+  return 0
