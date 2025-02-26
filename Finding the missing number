@@ -1,0 +1,6 @@
+class Solution:
+ def misiing(self,arr):]
+  b=len(arr)+1
+  sumi=b*(b+1)//2
+  c=sum(arr)
+  return sumi-c
