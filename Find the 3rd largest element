@@ -1,0 +1,11 @@
+class Solution:
+ def 3rdelement(self,arr):
+  a=0
+  b=0
+  c=0
+  d=len(arr)
+  e=arr
+  for i in range(2):
+   f=max(e)
+   e.remove(f)
+  return max(e)
