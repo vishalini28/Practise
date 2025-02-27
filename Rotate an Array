@@ -1,0 +1,3 @@
+class Solution:
+ def rotate (self,arr):
+  arr.insert(a,arr.pop())
