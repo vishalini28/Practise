@@ -1,1 +1,14 @@
-
+class Solution:
+    # Function to sort an array of 0s, 1s, and 2s
+    def sort012(self, arr):
+        cnt0 = arr.count(0)
+        cnt1 = arr.count(1)
+        cnt2 = arr.count(2)
+        for i in range(len(arr)):
+            if i < cnt0:
+                arr[i] = 0
+            elif i >= cnt0 and i < (cnt0 + cnt1):
+                arr[i] = 1
+            else :
+                arr[i] = 2
+        return arr
