@@ -1,0 +1,18 @@
+from collections import defaultdict
+class Solution:
+    def matrixDiagonally(self,mat):
+        # code here
+        dc=defaultdict(list)
+        row = len(mat)
+        col = len(mat[0])
+        for i in range(row):
+            for j in range(col):
+                sum = (i+j)
+                if sum & 1:
+                    dc[sum].append(mat[i][j])
+                else:
+                    dc[sum].insert(0,mat[i][j])
+        res = []
+        for i in range(row+col-1):
+            res.extend(dc[i])
+        return res
