@@ -1,0 +1,11 @@
+class Solution:
+    def minRow(self,a):
+        #code here
+        ind = 0
+        min_ones = sum(a[0])
+        for i in range(len(a)):
+            min_count = sum(a[i])
+            if min_count < min_ones:
+                ind, min_ones = i, min_count
+                
+        return ind+1
