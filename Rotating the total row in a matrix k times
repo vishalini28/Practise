@@ -1,0 +1,5 @@
+class Solution:
+    def rotateMatrix(self, k, mat):
+        # code here
+        k = k%len(mat[0])
+        return [i[k:]+i[:k] for i in mat]
