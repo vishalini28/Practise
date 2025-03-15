@@ -1,0 +1,10 @@
+class Solution:
+    def factorial(self, n):
+        # code here
+        if n==0 or n==1:
+           fac=1
+        elif n==2:
+           fac=2
+        else:
+            fac=n*self.factorial(n-1)
+        return fac
