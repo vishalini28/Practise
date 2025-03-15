@@ -1,0 +1,12 @@
+class Solution:    
+    #Complete this function
+    def printNos(self,n):
+        #Your code here 
+        l=[]
+        def combo(n):
+            if n==0:
+                return 
+            else:
+                combo(n-1)
+                print(n,end=" ")
+        combo(n)
