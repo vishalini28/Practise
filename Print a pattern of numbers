@@ -1,0 +1,13 @@
+class Solution:
+    def pattern(self, N):
+        # code here
+        num = N
+        ans = []
+        ans.append(N)
+        while N>0:
+            N-=5
+            ans.append(N)
+        while N!=num:
+            N+=5
+            ans.append(N)
+        return ans
