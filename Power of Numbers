@@ -1,0 +1,10 @@
+class Solution:
+    def reverse_exponentiation(self, n):
+        # code here
+        m=str(n)
+        m=m[::-1]
+        m=m.lstrip('0')
+        v=int(m)
+        c=int(n)
+        c//10
+        return pow(n,v)
