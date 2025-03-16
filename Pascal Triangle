@@ -1,0 +1,14 @@
+class Solution:
+
+	def nthRowOfPascalTriangle(self,n):
+	    # code here
+	    c=10**9+7
+	    pascal=[[1]]
+	    for i in range(1,n):
+	        prev=pascal[i-1]
+	        curr=[1]
+	        for j in range(1,i):
+	            curr.append((prev[j]+prev[j-1])%c)
+	        curr.append(1)
+	        pascal.append(curr)
+	    return(pascal[n-1])
