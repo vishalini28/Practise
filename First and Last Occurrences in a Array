@@ -1,0 +1,11 @@
+class Solution:
+    def find(self, arr, x):
+        n=len(arr)
+        k = []
+        for i in range(n):
+            if arr[i]==x:
+                k.append(i)
+        if k:
+            return [k[0],k[-1]]
+        else:
+            return [-1,-1]
