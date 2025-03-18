@@ -1,0 +1,15 @@
+class Solution:
+    
+    #Function to find the minimum element in sorted and rotated array.
+    def minNumber(self, arr,low,high):
+        #Your code here
+        if arr[0] > arr[-1]:
+            min = arr[-1]
+            i = -1
+            while True:
+                if arr[i - 1] > arr[i]:
+                    return arr[i]
+                else:
+                    i -= 1
+        else: return arr[0]
+
