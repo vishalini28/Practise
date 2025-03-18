@@ -1,0 +1,32 @@
+class Solution:
+    def findKRotation(self, arr):
+        # code here
+        ln = len(arr)
+        
+        
+        l = 0
+        
+        r = ln-1
+        
+        while l <=r:
+            
+            m = (l+r)//2
+            
+            if m !=ln-1 and arr[m] > arr[m+1]:
+                
+                return m+1
+                
+            elif m!=0 and arr[m-1] > arr[m]:
+                
+                return m
+                
+            elif arr[m] <= arr[r]:
+                
+                r = m-1
+                
+            else:
+                
+                l = m+1
+                
+                
+        return 0
