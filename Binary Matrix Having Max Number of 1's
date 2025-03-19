@@ -1,0 +1,12 @@
+class Solution:
+    def findMaxRow(self,mat,N):
+        # Code here
+        maxcount=0    #intialize count,ind, = 0
+        index=0
+
+        for i in range(N):
+            count = mat[i].count(1)    #each row if 1 is occur count it
+            if count>maxcount:
+                maxcount=count
+                index=i       #update the index to i
+        return [index,maxcount]
