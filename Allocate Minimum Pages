@@ -1,0 +1,40 @@
+class Solution:
+    
+    #Function to find minimum number of pages.
+    def findPages(self, arr, k):
+        #code here
+        # Helper function to check if a mid value is valid
+        def can_allocate(arr, k, max_pages):
+            student_count = 1
+            current_pages = 0
+            
+            for pages in arr:
+                if current_pages + pages > max_pages:
+                    student_count += 1
+                    current_pages = pages
+                    if student_count > k:  # More students needed than allowed
+                        return False
+                else:
+                    current_pages += pages
+            
+            return True
+
+        n = len(arr)
+        if k > n:  # If there are more students than books
+            return -1
+
+        # The minimum possible value is the max of the array (one book per student),
+        # and the maximum possible value is the sum of all pages (one student reads all books).
+        low, high = max(arr), sum(arr)
+        result = high
+
+        while low <= high:
+            mid = low + (high - low) // 2  # Avoid overflow
+            if can_allocate(arr, k, mid):
+                result = mid  # Update the result with the valid mid value
+                high = mid - 1  # Try for a smaller maximum value
+            else:
+                low = mid + 1  # Increase the lower bound
+
+        return result
+
