@@ -1,0 +1,12 @@
+class Solution:
+    def minDays(self, b: List[int], m: int, k: int) -> int:
+        if len(b)<m*k:return -1
+        o,L,R=0,{},{}
+        for p,l,r in sorted((t,p,p)for p,t in enumerate(b)):
+            if (z:=(l-1))in R:
+                del L[x:=R[z]]; del R[z]; o-=(z+1-x)//k; l=x
+            if (z:=(r+1))in L:
+                del R[y:=L[z]]; del L[z]; o-=(y+1-z)//k; r=y
+            3;          L[l]=r;   R[r]=l; o+=(r+1-l)//k
+            if o>=m:return p
+      
