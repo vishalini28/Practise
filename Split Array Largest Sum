@@ -1,0 +1,35 @@
+class Solution:
+    def helper(self,arr,cap):
+        n = len(arr)
+        summ=0
+        count=1
+        for num in range(n):
+            if summ+arr[num] <= cap:
+                summ+=arr[num]
+                
+            else:
+                count+=1
+                summ = arr[num]
+                
+        return count        
+        
+    def splitArray(self, arr, N, K):
+        
+        if K >N:
+            return -1
+            
+        low = max(arr)
+        high = sum(arr)
+        while low <= high:
+            mid = (low+high)//2
+            
+            count = self.helper(arr,mid)
+            
+            if count > K:
+                low = mid+1
+                
+            else:
+                high = mid-1
+                
+        return low     
+         
