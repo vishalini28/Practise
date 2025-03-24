@@ -1,0 +1,41 @@
+class Solution:
+ 
+    def mergedArr(self,arr,left,middle,right):
+        temp=[]
+        s=left
+        e=middle+1
+    
+        while (s<=middle and e<=right):
+            if arr[s]<arr[e]:
+                temp.append(arr[s])
+                s+=1
+            elif arr[s]>arr[e]:
+                temp.append(arr[e])
+                e+=1
+            else:
+                temp.append(arr[s])
+                temp.append(arr[e])
+                s+=1
+                e+=1
+    
+        while (s<=middle):
+            temp.append(arr[s])
+            s+=1
+    
+        while (e<=right):
+            temp.append(arr[e])
+            e+=1
+
+        for i in range(left,right+1):
+            arr[i]=temp[i-left]
+            
+        # return arr
+
+    def mergeSort(self,arr, l, r):
+        if (l>=r):
+            return arr
+    
+        mid=(l+r)//2
+        self.mergeSort(arr,l,mid)
+        self.mergeSort(arr,mid+1,r)
+        self.mergedArr(arr,l,mid,r)
