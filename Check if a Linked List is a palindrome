@@ -1,0 +1,29 @@
+#User function Template for python3
+'''
+
+    {
+        # Node Class
+        class Node:
+            def __init__(self, data):   # data -> value stored in node
+                self.data = data
+                self.next = None
+    }
+
+'''
+#Function to check whether the list is palindrome.
+class Solution:
+    def isPalindrome(self, head):
+        #code here
+        nums = []
+        while head:
+            nums.append(head.data)
+            head = head.next
+        left = 0
+        right = len(nums) - 1
+        
+        while left <= right:
+            if nums[left] != nums[right]:
+                return False
+            left += 1
+            right -= 1
+        return True
