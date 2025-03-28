@@ -1,0 +1,35 @@
+#User function Template for python3
+
+'''
+Structure of node
+
+# Node Class
+class Node:
+    def __init__(self, data):   # data -> value stored in node
+        self.data = data
+        self.next = None
+
+'''
+class Solution:
+      def countloop(self,slow,fast):
+        c=1
+        fast=fast.next
+        while fast!=slow:
+            c+=1
+            fast=fast.next
+        return c
+    # Function to find the length of a loop in the linked list.
+      def countNodesInLoop(self, head):
+        slow=head
+        fast=head
+        count=0
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast.next.next
+        
+            if fast==slow:
+                return self.countloop(slow,fast)
+        return 0
+
+
+       
