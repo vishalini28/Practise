@@ -1,0 +1,30 @@
+# User function Template for Python3
+
+# Following is the structure of node 
+# class node:
+#     def __init__(self):  
+#         self.data = None
+#         self.next = None
+
+class Solution:
+    def divide(self, head):
+        # code here
+        dummy_odd = node()
+        dummy_even = node()
+        
+        odd = dummy_odd
+        even = dummy_even
+        
+        while head:
+            if (head.data % 2 == 0):
+                even.next = head
+                even = even.next
+            else:
+                odd.next = head
+                odd = odd.next
+            head = head.next
+        odd.next = None
+        even.next = dummy_odd.next
+        return dummy_even.next
+
+
