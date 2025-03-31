@@ -1,0 +1,61 @@
+#User function Template for python3
+
+#User function Template for python3
+
+'''
+# Node Class
+class Node:
+    def __init__(self, data): 
+        self.data = data
+        self.next = None
+'''
+
+
+#Back-end complete function Template for Python 3
+class Solution:
+    def reorderList(self, head):
+        # code here
+        def printLL(head):
+            while head:
+                print(head.data, end = "->")
+                head = head.next
+            print()
+        def reverseList(head):
+            tail = head
+            next_node = tail.next
+            head.next = None
+            while next_node:
+                prev = tail
+                tail = next_node
+                next_node = next_node.next
+                tail.next = prev
+            head = tail
+            return head
+        def getLength(head):
+            n = 0
+            while head:
+                head = head.next
+                n += 1
+            return n
+        # Find Mid
+        mid = head
+        fast = head
+        prev = None
+        n = getLength(head)
+        while fast and fast.next:
+            prev = mid
+            mid = mid.next
+            fast = fast.next.next
+        if n%2 == 0:
+            mid = prev
+        # Reverse from Mid
+        mid = reverseList(mid)
+        curr1 = head
+        curr2 = mid
+        while curr2 and curr1:
+            next1 = curr1.next
+            next2 = curr2.next
+            curr1.next = curr2
+            curr1 = next1
+            curr2.next = next1
+            curr2 = next2
