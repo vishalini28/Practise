@@ -1,0 +1,32 @@
+#User function Template for python3
+
+'''
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.next=None
+
+'''
+class Solution:
+    def reverse(self,head):
+        #Your code here
+        curr,prev=head,None
+        while curr:
+            temp=curr.next
+            curr.next=prev
+            curr.prev=temp
+            prev=curr
+            curr=temp
+        return prev       
+    def compute(self,head):
+        head=self.reverse(head)
+        curr,temp=head,head.next
+        max_val=curr.data
+        while curr and curr.next:
+            if curr.next.data<max_val:
+                curr.next=curr.next.next
+            else:
+                curr=curr.next
+                max_val=curr.data
+        head=self.reverse(head)
+        return head
