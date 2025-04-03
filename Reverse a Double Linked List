@@ -1,0 +1,22 @@
+#User function Template for python3
+
+'''
+class DLLNode:
+    def __init__(self, val):
+        self.data = val
+        self.next = None
+        self.prev = None
+'''
+
+class Solution:
+    def reverseDLL(self, head):
+        #return head of reverse doubly linked list
+        curr,prev=head,None
+        while curr:
+            temp=curr.next
+            curr.next=prev
+            curr.prev=temp
+            prev=curr
+            curr=temp
+        return prev
+
