@@ -1,0 +1,76 @@
+#User function Template for python3
+
+''' Node for linked list:
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+'''
+#User function Template for python3
+
+''' Node for linked list:
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+'''
+class Solution:
+    
+    def reverse(self,num):
+        
+        prev,curr = None,num
+        
+        while curr != None:
+            nextNode = curr.next
+            curr.next = prev
+            prev =curr
+            curr = nextNode
+            
+        return prev
+        
+    def remove_zeros(self,num):
+        
+        while num and num.data == 0:
+            num = num.next
+            
+        return num
+    
+    def addTwoLists(self, num1, num2):
+        
+        num1 = self.remove_zeros(num1)
+        num2 = self.remove_zeros(num2)
+        num1 = self.reverse(num1)
+        num2 = self.reverse(num2)
+        
+        carry = 0
+        sum1 = 0
+        
+        result = Node(0)
+        ptr = result
+        
+        while num1 != None or num2 != None:
+            
+            sum1 = 0 + carry
+            
+            if num1 != None:
+                sum1 += num1.data
+                num1 = num1.next
+                
+            if num2 != None:
+                sum1 += num2.data
+                num2 = num2.next
+                
+            carry = sum1 // 10
+            sum1 = sum1 % 10
+            ptr.next = Node(sum1)
+            ptr = ptr.next
+            
+        if carry == 1:
+            ptr.next = Node(1)
+            
+        result = self.reverse(result.next)
+        return result            
