@@ -1,0 +1,15 @@
+class Solution:
+    def missingNum(self, arr):
+        # code here
+        n = max(arr)
+        s = (n*(n+1))//2
+        t = s - sum(arr)
+        if t==0:
+            return n+1
+        return t 
+        n = max(arr)
+        s = (n*(n+1))//2
+        t = s - sum(arr)
+        if t==0:
+            return n+1
+        return t
