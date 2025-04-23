@@ -1,0 +1,14 @@
+class Solution:
+  def singleNum(self, arr):
+		# Code here
+		    new=[]
+            freq={}
+            for i in arr:
+                if i in freq:
+                    freq[i]+=1
+                else:
+                    freq[i]=1
+            for i,count in freq.items():
+                if count==1:
+                    new.append(i)
+            return sorted(new)    
