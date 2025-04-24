@@ -1,0 +1,4 @@
+class Solution:
+    def getSingle(self, arr):
+        # code here 
+     return (3*sum(set(arr)) - sum(arr)) // 2
