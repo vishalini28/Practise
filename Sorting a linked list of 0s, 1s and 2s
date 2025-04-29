@@ -1,0 +1,23 @@
+class Solution:
+    def segregate(self, head):
+        #code here
+        array=[]
+        
+        while head:
+            array.append(head.data)
+            head=head.next
+            
+        array.sort()
+        
+        newhead=Node(array[0])
+        head=newhead
+        
+        i=1
+        while i<len(array):
+            newhead.next=Node(array[i])
+            newhead=newhead.next
+            i+=1
+        return head
+    
+    
+
