@@ -1,0 +1,27 @@
+class Solution:
+    def __init__(self):
+        self.s = []
+        self.top = 0
+    def is_empty(self):
+        return self.s == []
+    def push(self,ele):
+        self.s.append(ele)
+        self.top +=1
+    def pop(self):
+        if self.is_empty():
+            return -1
+        else:
+            self.top-=1
+            return self.s.pop()
+    def help_classmate(self, arr, n):
+        ans = [-1] * n 
+        for i in range(n):
+            while (self.s) and (arr[self.s[-1]] > arr[i]):
+                ans[self.s[-1]] = arr[i]
+                self.pop()
+            self.push(i)
+        return ans
+
+
+        
+    
