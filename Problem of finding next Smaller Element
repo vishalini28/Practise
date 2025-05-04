@@ -1,0 +1,20 @@
+def nextSmallerElement(arr,n):
+    # Write your code here.
+    ans = [0 for i in range(n)]
+
+    # Iterating through all the array elements and finding next smaller element for each element.
+    for i in range(n):
+
+        # Initializing the next smaller element as -1.
+        ans[i] = -1
+
+        # Moving to the right of the element.
+        for j in range(i + 1, n):
+
+            # Checking for the next smaller element.
+            if(arr[i] > arr[j]):
+                ans[i] = arr[j]
+                break
+
+    # Returning the final vector after all the iterations
+    return ans
