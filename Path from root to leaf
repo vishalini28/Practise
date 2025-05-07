@@ -1,0 +1,16 @@
+class Solution:
+    def Paths(self, root):
+        path=[]
+        ret=[]
+        def bt(cur=root):
+            nonlocal path,ret
+            if not cur:
+                return
+            if not cur.left and not cur.right:
+                ret.append(path+[cur.data])
+            path.append(cur.data)
+            bt(cur.left)
+            bt(cur.right)
+            path.pop()
+        bt()
+        return ret
