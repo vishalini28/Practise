@@ -1,0 +1,27 @@
+class Solution:
+    
+    #Function to convert an infix expression to a postfix expression.
+    def InfixtoPostfix(self, s):
+        #code here
+        result = ''
+        S = []
+        precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
+    
+        for i in s:
+            if i.isalnum():
+                result += i
+            elif i == '(':
+                S.append(i)
+            elif i == ')':
+                while len(S) != 0 and S[-1] != '(':
+                    result += S.pop()
+                S.pop()  # Pop the '(' from the stack
+            else:
+                while len(S) != 0 and S[-1] != '(' and precedence[S[-1]] >= precedence[i]:
+                    result += S.pop()
+                S.append(i)
+    
+        while len(S) != 0:
+            result += S.pop()
+    
+        return result
