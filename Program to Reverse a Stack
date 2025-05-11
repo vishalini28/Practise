@@ -1,0 +1,18 @@
+from typing import List
+
+class Solution:
+    def test(self,st,ans):
+        if not st:  # Base condition to stop recursion
+            return
+        temp = st.pop()
+        ans.append(temp)
+        self.test(st, ans)  # Recursive call
+        
+    def reverse(self,st):
+        ans = []
+        self.test(st, ans)  # Calling the corrected recursive function
+        st.clear()  # Clear the stack
+        for i in ans:
+            st.append(i)  # Append elements back in reversed order
+        
+        #code here
