@@ -1,0 +1,11 @@
+#User function Template for python3
+class Solution:
+    def insertAtBottom(self,st,x):
+        # code here
+        if not st:
+            st.append(x)
+            return st
+        last=st.pop()
+        self.insertAtBottom(st,x)
+        st.append(last)
+        return st
