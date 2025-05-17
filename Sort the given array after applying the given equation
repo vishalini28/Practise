@@ -1,0 +1,9 @@
+class Solution:
+	def sortArray(self, arr, A, B, C):
+		# Code here
+		n=len(arr)
+        for i in range(n):
+            x=arr[i]
+            fx=(A*(x**2))+(B*x)+C
+            arr[i]=fx
+        return sorted(arr)
