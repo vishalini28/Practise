@@ -1,0 +1,7 @@
+from collections import defaultdict, Counter
+
+class Solution:
+	def countSubstring(self, s):
+		# code here
+		
+		retur
