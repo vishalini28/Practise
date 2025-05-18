@@ -1,0 +1,27 @@
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.left = None
+        self.right = None
+'''        
+class Solution:
+    def findSpiral(self, root):
+        #code here
+        res = []
+        q, f = [root], 0
+        while(q):
+            v = []
+            for i in range(len(q)):
+                node = q.pop(0)
+                v.append(node.data)
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            if f%2 == 0:
+                res += v[::-1]
+            else:
+                res += v
+            f = 1 - f
+        return res
+        
