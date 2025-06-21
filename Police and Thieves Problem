@@ -1,0 +1,19 @@
+class Solution:
+    def catchThieves(self, arr, k):
+        #code  here
+     from bisect import bisect_left, bisect_right
+     police = [idx for idx, e in enumerate(arr) if e == 'P']
+     thieve = [idx for idx, e in enumerate(arr) if e == 'T']
+        
+     ans = 0
+        
+     for p in police:
+         ti = bisect_left(thieve, p-k)
+         if ti >= 0 and ti < len(thieve):
+             if abs(thieve[ti] - p) <= k:
+                ans += 1
+                del thieve[:ti+1]
+                # elif thieve[ti] < p:
+                #     del thieve[:ti+1]
+                    
+     return ans
