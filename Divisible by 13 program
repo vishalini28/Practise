@@ -1,0 +1,8 @@
+class Solution:
+    def divby13(self, s):
+        # code here 
+        # using division approach 
+        remainder = 0
+        for digit in s:
+            remainder = (remainder*10 + (ord(digit) - ord('0'))) % 13
+        return remainder == 0
