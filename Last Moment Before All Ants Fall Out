@@ -1,0 +1,9 @@
+class Solution:
+    def getLastMoment(self, n, left, right):
+        # code here
+        l,r = 0,0
+        for i in range(len(left)):
+            l = max(l,left[i])
+        for i in range(len(right)):
+            r = max(r,n-right[i])
+        return max(l,r)
