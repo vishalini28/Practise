@@ -1,0 +1,21 @@
+class Solution:
+   def median(self, mat):
+        from bisect import bisect_left
+        
+        def get_position(guess):
+            return sum(bisect_left(row, guess) for row in mat)
+        
+        m, n = len(mat), len(mat[0])
+        median_i = m * n // 2
+        lo, hi = 1, 2000
+        candidate = -1
+        while lo <= hi:
+            guess = lo + (hi - lo) // 2
+            k = get_position(guess)
+            if k <= median_i:
+                candidate = guess
+                lo = guess + 1
+            else:
+                hi = guess - 1
+    	return candidate
+    
