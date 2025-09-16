@@ -1,0 +1,18 @@
+class Solution:
+    def evaluatePostfix(self, arr):
+        operand=["*","**","-","+","//"]
+        operator=[]
+        for i in range(len(arr)):
+            if arr[i]=="/":
+                arr[i]="//"
+            if arr[i]=="^":
+                arr[i]="**"
+            if arr[i] not in operand:
+                operator.append(int(arr[i]))
+            else:
+                a=operator.pop()
+                b=operator.pop()
+                x=eval(f"({b}) {arr[i]} ({a})")
+                operator.append(x)
+        return operator[-1]
+
