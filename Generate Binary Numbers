@@ -1,0 +1,6 @@
+class Solution:
+    def generateBinary(self, n):
+        ans = []
+        for i in range(1, n+1):
+            ans.append(bin(i)[2:])
+        return ans
