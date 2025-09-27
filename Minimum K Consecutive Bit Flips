@@ -1,0 +1,21 @@
+class Solution:
+    def kBitFlips(self, arr, k):
+        from collections import deque
+        n = len(arr)
+        changes = deque([False] * k)
+        curr_change = flips = 0
+        for i in range(n - k + 1):
+            if changes.popleft():
+                curr_change = 1 - curr_change
+            if arr[i] == curr_change:
+                curr_change = 1 - curr_change
+                flips += 1
+                changes.append(True)
+            else:
+                changes.append(False)
+        for i in range(n - k + 1, n):
+            if changes.popleft():
+                curr_change = 1 - curr_change
+            if arr[i] == curr_change:
+                return -1
+        return flips
