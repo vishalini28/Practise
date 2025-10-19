@@ -1,0 +1,29 @@
+'''
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.left = None
+        self.right = None
+'''
+class Solution:
+ def getKClosest(self, root, target, k):
+        # code here
+        q = []
+        def dfs(n):
+            nonlocal q
+            if not n:
+                return
+            dfs(n.left)
+            q.append(n.data)
+            dfs(n.right)
+        dfs(root)
+        
+        i, j = 0, len(q)-1
+        while j-i+1 > k:
+            if abs(q[j]-target) >= abs(q[i]-target):
+                j -= 1
+            else:
+                i += 1
+        return q[i:j+1]
+        
+    
