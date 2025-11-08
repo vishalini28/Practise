@@ -1,0 +1,36 @@
+class Solution:
+
+    def numberOfPath(self, mat, k):
+        n = len(mat)
+        m = len(mat[0])
+
+        # Use only two 2D arrays for space optimization
+        prev = [[0] * (k + 1) for _ in range(m)]
+        curr = [[0] * (k + 1) for _ in range(m)]
+
+        # Build DP table iteratively
+        for i in range(n):
+            for j in range(m):
+                for sum_ in range(k + 1):
+
+                    # Base case
+                    if i == 0 and j == 0:
+                        # Only one way if sum matches cell value
+                        curr[j][sum_] = 1 if sum_ == mat[0][0] else 0
+                        continue
+
+                    curr[j][sum_] = 0
+
+                    if sum_ - mat[i][j] >= 0:
+                        # from top
+                        if i > 0:
+                            curr[j][sum_] += prev[j][sum_ - mat[i][j]]
+                        # from left
+                        if j > 0:
+                            curr[j][sum_] += curr[j - 1][sum_ - mat[i][j]]
+
+            # Move current row to previous row
+            prev = [row[:] for row in curr]
+
+        # Total ways to reach bottom-right with sum = k
+        return prev[m - 1][k]
