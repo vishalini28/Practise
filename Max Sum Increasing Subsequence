@@ -1,0 +1,26 @@
+class Solution:
+    def maxSumIS(self, arr):
+        vals = sorted(set(arr))
+        comp = {v: i+1 for i, v in enumerate(vals)}
+        n = len(vals)
+        BIT = [0] * (n + 1)
+
+        def upd(i, v):
+            while i <= n:
+                BIT[i] = max(BIT[i], v)
+                i += i & -i
+
+        def qry(i):
+            r = 0
+            while i:
+                r = max(r, BIT[i])
+                i -= i & -i
+            return r
+
+        ans = 0
+        for x in arr:
+            i = comp[x]
+            s = qry(i - 1) + x
+            upd(i, s)
+            ans = max(ans, s)
+        return ans
